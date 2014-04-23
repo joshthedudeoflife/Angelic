@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Angelic</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,7 +12,39 @@
   </head>
 
   <body>
+    <div class="sticky">
+    <nav class="top-bar" data-topbar>
 
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="#">Portfolio Dashboard</a></li>
+          <li class="has-dropdown">
+            <a href="#">Contacts</a>
+            <ul class="dropdown">
+              <li><a href="#">Organizations</a></li>
+              <li><a href="#">People</a></li>
+            </ul>
+          <li><a href="#">Portfolio Report</a></li>
+          </li>
+        </ul>
+
+        <ul class="right">
+          <li><a href="#">Log In</a></li>
+          <li><a href="/users/sign_up">New User</a></li>
+          <li class="has-form">
+              <div class="row collapse">
+                <div class="large-8 small-9 columns">
+                  <input type="text" placeholder="Find Stuff">
+                </div>
+                <div class="large-4 small-3 columns">
+                  <a href="#" class="button expand">Search</a>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </section>
+    </nav> 
+    </div>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
