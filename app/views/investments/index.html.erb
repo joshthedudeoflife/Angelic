@@ -1,0 +1,25 @@
+<h1>My Investments</h1>
+
+<table>
+	<th>
+		<tr>
+			<td>Name</td>
+			<td>Investment Type</td>
+			<td>Amount Invested</td>
+			<td>Investment Date</td>
+		</tr>
+	</th>
+	<% @investments.each do |investment| %>
+		<tr>
+			<td><%= investment.name %></td>
+			<td><%= investment.investment_type %></td>
+			<td><%= investment.amount_invested %></td>
+			<td><%= investment.investment_date %></td>
+			<td><%= link_to "view", investments_show_path %></td>
+			<td><%= link_to "edit", investments_edit_path(investment) %></td>
+		</tr>
+
+	<% end %>
+
+</table>
+<%= link_to "Add New Investment", investments_new_path %>
