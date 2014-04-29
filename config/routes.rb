@@ -27,7 +27,7 @@ devise_scope :user do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources 'investments', :only => [:new, :create]
+  resources 'investments', :only => [:new, :create, :show, :edit]
   # Example resource route with options:
   #   resources :products do
   #     member do

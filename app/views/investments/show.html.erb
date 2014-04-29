@@ -1,2 +1,32 @@
-<h1>Investments#show</h1>
-<p>Find me in app/views/investments/show.html.erb</p>
+
+
+	<ul class="investment">
+		<li class="investment-name"><%= @investment.name %></li>
+		<li>
+			<table>
+				
+				<tr>
+					<td>Amount Invested</td>
+					<td><%= @investment.amount_invested %></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td>Description goes here</td>
+				</tr>
+				<tr>
+					<td>Investment Date</td>
+					<td><%= @investment.investment_date %></td>
+				</tr>
+				<tr>
+					<td>Investment Type</td>
+					<td><%= @investment.investment_type %><td>
+					</tr>
+			</table>
+		</li>
+	</ul>
+	
+<p>
+	<%= link_to "edit", edit_investment_path %>
+</p>
+
+<%= link_to "<<Back", investments_path %>

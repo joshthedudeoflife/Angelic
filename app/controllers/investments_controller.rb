@@ -18,6 +18,7 @@ class InvestmentsController < ApplicationController
   end
 
   def show
+    @investment = Investment.find params[:id]
   end
 
   def edit
