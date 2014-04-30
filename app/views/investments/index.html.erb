@@ -16,10 +16,10 @@
 			<td><%= investment.amount_invested %></td>
 			<td><%= investment.investment_date %></td>
 			<td><%= link_to "view", investment %></td>
-			<td><%= link_to "edit", investments_edit_path(investment) %></td>
+			<td><%= link_to "edit", edit_investment_path(investment) %></td>
 		</tr>
 
 	<% end %>
 
 </table>
-<%= link_to "Add New Investment", investments_new_path %>
+<%= link_to "Add New Investment", investments_new_path, :class => "button" %>

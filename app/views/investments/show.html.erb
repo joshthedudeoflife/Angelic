@@ -1,32 +1,34 @@
 
-
-	<ul class="investment">
-		<li class="investment-name"><%= @investment.name %></li>
-		<li>
-			<table>
-				
-				<tr>
-					<td>Amount Invested</td>
-					<td><%= @investment.amount_invested %></td>
-				</tr>
-				<tr>
-					<td>Description</td>
-					<td>Description goes here</td>
-				</tr>
-				<tr>
-					<td>Investment Date</td>
-					<td><%= @investment.investment_date %></td>
-				</tr>
-				<tr>
-					<td>Investment Type</td>
-					<td><%= @investment.investment_type %><td>
-					</tr>
-			</table>
-		</li>
-	</ul>
-	
-<p>
-	<%= link_to "edit", edit_investment_path %>
-</p>
-
-<%= link_to "<<Back", investments_path %>
+<div class="row">
+	<div class="large-3 large-offset-3 columns">
+		<ul class="investment">
+			<li class="investment-name"><%= @investment.name %></li>
+			<li>
+				<div class="large-3 small-offset-1 columns">
+					<table>
+						<tr>
+							<td class="investment-descriptor">Amount Invested</td>
+							<td><%= @investment.amount_invested %></td>
+						</tr>
+						<tr>
+							<td class="investment-descriptor">Description</td>
+							<td>Description goes here</td>
+						</tr>
+						<tr>
+							<td class="investment-descriptor">Investment Date</td>
+							<td><%= @investment.investment_date %></td>
+						</tr>
+						<tr>
+							<td class="investment-descriptor">Investment Type</td>
+							<td><%= @investment.investment_type %><td>
+						</tr>
+					</table>
+			</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="large-3 large-offset-5 columns">
+	<%= link_to "edit", edit_investment_path, :class => "button" %>
+	<%= link_to "Back", investments_index_path, :class => "button" %>
+<div class="large-3 large-offset-4 columns">

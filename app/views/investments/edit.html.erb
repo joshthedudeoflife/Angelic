@@ -1,2 +1,23 @@
-<h1>Investments#edit</h1>
-<p>Find me in app/views/investments/edit.html.erb</p>
+<div class="small-6 large-centered columns">
+	<fieldset>
+		<legend>Edit Investment</legend>
+
+			<%= form_for @investment do |f| %>
+
+			  <div><%= f.label :name %><br />
+			  <%= f.text_area :name %></div>
+
+			  <div><%= f.label :investment_type %><br />
+			  <%= f.text_area :investment_type %></div>
+
+			  <div><%= f.label :amount_invested %><br />
+			  <%= f.text_field :amount_invested%></div>
+
+			  <div><%= f.label :invstment_date %><br />
+			  <%= f.text_field :investment_date%></div>
+
+			  <div><%= f.submit "Update" , :class => 'button' %></div>
+			<% end %>
+	</fieldset>
+</div>
+

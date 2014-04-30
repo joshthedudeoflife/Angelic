@@ -10,9 +10,6 @@
   text-align: center;
   background: white;
   background-clip: padding-box;
-  border: 2px solid #e5ded6;
-  border-color: rgba(black, .1);
-  border-radius: 5px;
 }
 
 .investment-name {
@@ -22,4 +19,13 @@
 
 ul {
  list-style: none;
+ padding-left: 20px;
+}
+
+.investment-descriptor {
+	color: blue;
+}
+
+td {
+	min-width: 150px;
 }

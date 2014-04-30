@@ -11,7 +11,7 @@ class InvestmentsController < ApplicationController
 	  @investment = Investment.new(safe_params)
 
 	  if @investment.save
-	  	render :index
+	  	redirect_to investments_path
 	  else 
 	  	render :new
 	  end
@@ -22,6 +22,17 @@ class InvestmentsController < ApplicationController
   end
 
   def edit
+    @investment = Investment.find params[:id]
+  end
+
+  def update
+    @investment = Investment.find params[:id]
+
+    if @investment.update(safe_params)
+      redirect_to investments_path
+    else 
+      render :edit
+    end
   end
 
   private
