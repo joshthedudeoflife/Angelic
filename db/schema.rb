@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427232538) do
+ActiveRecord::Schema.define(version: 20140430224942) do
 
   create_table "investments", force: true do |t|
     t.string   "name"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140427232538) do
     t.string   "investment_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
+
+  add_index "investments", ["deleted_at"], name: "index_investments_on_deleted_at"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
