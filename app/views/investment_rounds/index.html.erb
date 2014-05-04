@@ -1,0 +1,31 @@
+<h1>New Investment Rounds</h1>
+
+<table class="portfolio-table">
+	<th >
+		<tr>
+			<div class= "portfolio-table-head">
+				<td><strong>Company Name</strong></td>
+				<td><strong>Round Name</strong></td>
+				<td><strong>Amount</strong></td>
+				<td><strong>Pre-Money Valuation</strong></td>
+				<td><strong>Investors</strong></td>
+				<td><strong>Investment Date</strong></td>
+			</div>
+		</tr>
+	</th>
+	<% @investment_rounds.each do |investment_round| %>
+		<tr>
+			<td></td>
+			<td><%= investment_round.round_name %></td>
+			<td><%= number_to_currency(investment_round.investment_amount, precision: 0) %></td>
+			<td><%= number_to_currency(investment_round.pre_money_valuation, precision: 0) %></td>
+			<td><%= investment_round.investors %></td>
+			<td><%= investment_round.investment_date %></td>
+			<td><%= link_to "view", investment_round %></td>
+			<td><%= link_to "edit", edit_investment_round_path(investment_round) %></td>
+		</tr>
+
+	<% end %>
+
+</table>
+<%= link_to "Add New Investment Round", new_investment_round_path, :class => "button" %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investment_amount: 9.99
+  share_price: 9.99
+  pre_money_valuation: 9.99
+
+two:
+  investment_amount: 9.99
+  share_price: 9.99
+  pre_money_valuation: 9.99
