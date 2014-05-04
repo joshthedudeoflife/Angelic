@@ -1,19 +1,31 @@
+  <script src="js/vendor/jquery.js"></script>
+  <script src="/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+
+
 <h1>My Investments</h1>
 
-<table>
-	<th>
+<table class="portfolio-table">
+	<th >
 		<tr>
-			<td>Name</td>
-			<td>Investment Type</td>
-			<td>Amount Invested</td>
-			<td>Investment Date</td>
+			<div class= "portfolio-table-head">
+				<td><strong>Name</strong></td>
+				<td><strong>Investment Type</strong></td>
+				<td><strong>Amount Invested</strong></td>
+				<td><strong>Current % Ownership</strong></td>
+				<td><strong>Investment Date</strong></td>
+			</div>
 		</tr>
 	</th>
 	<% @investments.each do |investment| %>
 		<tr>
 			<td><%= investment.name %></td>
 			<td><%= investment.investment_type %></td>
-			<td><%= investment.amount_invested %></td>
+			<td><%= number_to_currency(investment.amount_invested) %></td>
+			<td><%= number_to_percentage(investment.pct_ownership, precision: 2) %></td>
 			<td><%= investment.investment_date %></td>
 			<td><%= link_to "view", investment %></td>
 			<td><%= link_to "edit", edit_investment_path(investment) %></td>

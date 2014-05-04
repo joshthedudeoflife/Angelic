@@ -6,10 +6,7 @@
 			<li>
 				<div class="large-3 small-offset-1 columns">
 					<table>
-						<tr>
-							<td class="investment-descriptor">Amount Invested</td>
-							<td><%= @investment.amount_invested %></td>
-						</tr>
+						
 						<tr>
 							<td class="investment-descriptor">Description</td>
 							<td>Description goes here</td>
@@ -21,6 +18,14 @@
 						<tr>
 							<td class="investment-descriptor">Investment Type</td>
 							<td><%= @investment.investment_type %><td>
+						</tr>
+						<tr>
+							<td class="investment-descriptor">Amount Invested</td>
+							<td><%= number_to_currency(@investment.amount_invested) %></td>
+						</tr>
+						<tr>
+							<td class="investment-descriptor">Current % Ownership</td>
+							<td><%= number_to_percentage(@investment.pct_ownership, precision: 2) %><td>
 						</tr>
 					</table>
 			</div>

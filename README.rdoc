@@ -5,7 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+Ruby Version - 2.1.1p76
+Rails Version - 4.0.4
+
+Gems included:
+
+gem 'rails', '4.0.4'
+gem 'foundation-rails'
+gem 'devise'
+gem "paranoia", "~> 2.0"
 
 * System dependencies
 

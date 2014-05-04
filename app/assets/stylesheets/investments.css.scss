@@ -1,6 +1,7 @@
 // Place all the styles related to the Investments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation";
 
 .investment {
   float: center;
@@ -28,4 +29,13 @@ ul {
 
 td {
 	min-width: 150px;
+}
+
+.portfolio-table {
+  border: none;
+}
+
+.portfolio-table-head {
+  background-color: black;
+  font-style: bold;
 }

@@ -1,3 +1,5 @@
+
+
 <div class="small-6 large-centered columns">
 	<fieldset>
 		<legend>New Investment</legend>
@@ -8,10 +10,15 @@
 			  <%= f.text_area :name , placeholder: "Angelic" %></div>
 
 			  <div><%= f.label :investment_type %><br />
-			  <%= f.text_area :investment_type, placeholder: "Investment Type" %></div>
+			  <%= f.text_area :investment_type, placeholder: "Investment Type" %>
+				</div>
+				
 
 			  <div><%= f.label :amount_invested %><br />
-			  <%= f.text_field :amount_invested, placeholder: "1,000,000" %></div>
+				<%= f.text_area :amount_invested, placeholder: "100000" %>
+
+				<div><%= f.label "Initial Percent Ownership (1-100)" %><br />
+			  <%= f.text_field :pct_ownership, placeholder: 1.5 %></div>
 
 			  <div><%= f.label :invstment_date %><br />
 			  <%= f.text_field :investment_date, placeholder: "April 1, 2014" %></div>

@@ -40,7 +40,7 @@ class InvestmentsController < ApplicationController
   private
 
     def safe_params
-      params.require(:investment).permit(:name, :investment_type, :amount_invested, :investment_date)
+      params.require(:investment).permit(:name, :investment_type, :amount_invested, :investment_date, :pct_ownership)
       # Make sure a key is in the params hash
       # _require_ method
 

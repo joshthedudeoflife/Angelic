@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430224942) do
+ActiveRecord::Schema.define(version: 20140504174531) do
 
   create_table "investments", force: true do |t|
     t.string   "name"
     t.string   "investment_type"
-    t.string   "amount_invested"
+    t.decimal  "amount_invested"
     t.string   "investment_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.decimal  "pct_ownership"
   end
 
   add_index "investments", ["deleted_at"], name: "index_investments_on_deleted_at"
