@@ -1,0 +1,31 @@
+<h1>My Investments</h1>
+
+<table class="portfolio-table">
+	<th >
+		<tr>
+			<div class= "portfolio-table-head">
+				<td><strong>Name</strong></td>
+				<td><strong>Investment Type</strong></td>
+				<td><strong>Amount Invested</strong></td>
+				<td><strong>Current % Ownership</strong></td>
+				<td><strong>Shares Owned</strong></td>
+				<td><strong>Investment Date</strong></td>
+			</div>
+		</tr>
+	</th>
+	<% @companies.each do |c| %>
+		<tr>
+			<td><%= c.name %></td>
+			<td><%= c.investment_type %></td>
+			<td><%= number_to_currency(c.amount_invested, precision: 0) %></td>
+			<td><%= number_to_percentage(c.pct_ownership, precision: 2) %></td>
+			<td><%= number_with_delimiter(c.shares_bought) %></td>
+			<td><%= c.investment_date %></td>
+			<td><%= link_to "view", c %></td>
+			<td><%= link_to "edit", edit_company_path(c) %></td>
+		</tr>
+
+	<% end %>
+
+</table>
+<%= link_to "Add New Investment", companies_new_path, :class => "button" %>

@@ -1,9 +1,9 @@
-// Place all the styles related to the Investments controller here.
+// Place all the styles related to the Copmanies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "foundation";
 
-.investment {
+.company {
   float: center;
   width: 500px;
   margin: 20px 2px;
@@ -13,7 +13,7 @@
   background-clip: padding-box;
 }
 
-.investment-name {
+.company-name {
 	font-size: 50px;
 	font-style: bold;
 }
@@ -23,10 +23,10 @@ ul {
  padding-left: 20px;
 }
 
-.investment-descriptor {
+.company-descriptor {
 	font-weight: bold;
 }
-.investment-show-table {
+.company-show-table {
   border: none;
 }
 

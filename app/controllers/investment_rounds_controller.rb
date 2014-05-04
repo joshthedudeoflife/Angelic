@@ -5,7 +5,7 @@ class InvestmentRoundsController < ApplicationController
 
   def create
 	  @investment_round = InvestmentRound.new(safe_params)
-	  @investment = params[:investment_id]
+	  @company = params[:company_id]
 
 	  if @investment_round.save
 	  	redirect_to investment_rounds_path
@@ -36,11 +36,11 @@ class InvestmentRoundsController < ApplicationController
   
 private
   def init_calcs
-    @investment.init_post_money = @investment.amount_invested / (@investment.pct_ownership/100)
-    @investment.init_share_price = @investment.init_post_money / (@investment.shares_bought / (@investment.pct_ownership/100))
+    @company.init_post_money = @company.amount_invested / (@company.pct_ownership/100)
+    @company.init_share_price = @company.init_post_money / (@company.shares_bought / (@company.pct_ownership/100))
   end 
   def safe_params
-    params.require(:investment_round).permit(:round_name, :investment_amount, :pre_money_valuation, :share_price, :investors, :investment_date, :investment_id)
+    params.require(:investment_round).permit(:round_name, :investment_amount, :pre_money_valuation, :share_price, :investors, :investment_date, :company_id, :init_post_money, :init_share_price)
     # Make sure a key is in the params hash
     # _require_ method
 

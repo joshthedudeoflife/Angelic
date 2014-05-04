@@ -4,10 +4,10 @@ Angelic::Application.routes.draw do
   get "investment_rounds/edit"
   get "investment_rounds/new"
   get "dashboard/portfolio"
-  get "investments/index"
-  get "investments/new"
-  get "investments/show"
-  get "investments/edit"
+  get "companies/index"
+  get "companies/new"
+  get "companies/show"
+  get "companies/edit"
   devise_for :users
 
 devise_scope :user do
@@ -31,7 +31,7 @@ devise_scope :user do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :investments
+  resources :companies
   resources :investment_rounds
   # Example resource route with options:
   #   resources :products do

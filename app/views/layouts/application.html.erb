@@ -9,22 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-    <script>
-      $(function() {
-        $( "#slider-range" ).slider({
-          range: true,
-          min: 0,
-          max: 500,
-          values: [ 75, 300 ],
-          slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-          }
-        });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-          " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-      });
-      </script>
-    </head>
+  </head>
 
   <body>
     <div class="sticky">
@@ -38,7 +23,7 @@
         </ul>
         
         <ul class="left">
-          <li><%= link_to "Portfolio", investments_index_path %></li>
+          <li><%= link_to "Portfolio", companies_index_path %></li>
           <li class="has-dropdown">
             <a href="#">Contacts</a>
             <ul class="dropdown">

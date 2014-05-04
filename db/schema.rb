@@ -11,21 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504193811) do
+ActiveRecord::Schema.define(version: 20140504233910) do
 
-  create_table "investment_rounds", force: true do |t|
-    t.decimal  "investment_amount"
-    t.decimal  "share_price"
-    t.decimal  "pre_money_valuation"
-    t.text     "investors"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "round_name"
-    t.string   "investment_date"
-    t.integer  "investment_id"
-  end
-
-  create_table "investments", force: true do |t|
+  create_table "companies", force: true do |t|
     t.string   "name"
     t.string   "investment_type"
     t.decimal  "amount_invested"
@@ -40,7 +28,19 @@ ActiveRecord::Schema.define(version: 20140504193811) do
     t.text     "description"
   end
 
-  add_index "investments", ["deleted_at"], name: "index_investments_on_deleted_at"
+  add_index "companies", ["deleted_at"], name: "index_companies_on_deleted_at"
+
+  create_table "investment_rounds", force: true do |t|
+    t.decimal  "investment_amount"
+    t.decimal  "share_price"
+    t.decimal  "pre_money_valuation"
+    t.text     "investors"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "round_name"
+    t.string   "investment_date"
+    t.integer  "company_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
