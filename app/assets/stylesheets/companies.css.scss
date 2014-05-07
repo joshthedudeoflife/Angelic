@@ -29,7 +29,9 @@ ul {
 .company-show-table {
   border: none;
 }
-
+table {
+  border: none;
+}
 td {
 	min-width: 150px;
 }
@@ -61,4 +63,8 @@ th {
 .rounds-field {
   border-width: 10px;
   border-color: green;
+}
+.investment-fieldset {
+  border-width: 5px;
+  border-color: navy;
 }

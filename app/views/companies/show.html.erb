@@ -9,67 +9,72 @@
 	<legend>Company Description</legend>
 			<p><%= @company.description %></p>
 </fieldset>
-<fieldset>
-	<legend>My Investment</legend>
-			<table>
-				<tr>
-					<td class="company-descriptor">Investment Date</td>
-					<td><%= @company.investment_date %></td>
-				</tr>	
-				<tr>
-					<td class="company-descriptor">Investment Type</td>
-					<td><%= @company.investment_type %></td>
-				</tr>	
-				<tr>
-					<td class="company-descriptor">Initial % Ownership</td>
-					<td><%= number_to_percentage(@company.init_pct_ownership, precision: 2) %></td>
-				</tr>	
-				<tr>
-						<td class="company-descriptor">Shares Bought</td>
-						<td><%= number_with_delimiter(@company.shares_bought) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Initial Share Price</td>
-					<td><%= number_to_currency(@company.init_share_price, precision: 2) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Amount Invested</td>
-					<td><%= number_to_currency(@company.amount_invested, precision: 0) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Initial Post-Money Valuation</td>
-					<td><%= number_to_currency(@company.init_post_money, precision: 0) %></td>
-				</tr>
-				
-			</table>
-</fieldset>
-<fieldset>
-	<legend>Current Company Status</legend>
-		<table>
-				<tr>
-					<td class="company-descriptor">Most Recent Valuation</td>
-					<td><%= number_to_currency(@company.current_valuation, precision: 0) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Current % Ownership</td>
-					<td><%= number_to_percentage(@company.current_pct_ownership, precision: 2) %></td>
-				</tr>	
-				<tr>
-						<td class="company-descriptor">Current Share Price</td>
-						<td><%= number_with_delimiter(@company.current_share_price, precision: 2) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Current investment Value</td>
-					<td><%= number_to_currency(@company.current_investment_value, precision: 0) %></td>
-				</tr>
-				<tr>
-					<td class="company-descriptor">Unrealized ROI</td>
-					<td><%= number_to_percentage(@company.unrealized_roi, precision: 2) %></td>
-				</tr>
-				
-			</table>
-</fieldset>
-
+<div class="row">
+	<div class="small-4 columns">
+		<fieldset class="investment-fieldset">
+			<legend>My Investment</legend>
+					<table>
+						<tr>
+							<td class="company-descriptor">Investment Date</td>
+							<td><%= @company.investment_date %></td>
+						</tr>	
+						<tr>
+							<td class="company-descriptor">Investment Type</td>
+							<td><%= @company.investment_type %></td>
+						</tr>	
+						<tr>
+							<td class="company-descriptor">Initial % Ownership</td>
+							<td><%= number_to_percentage(@company.init_pct_ownership, precision: 2) %></td>
+						</tr>	
+						<tr>
+								<td class="company-descriptor">Shares Bought</td>
+								<td><%= number_with_delimiter(@company.shares_bought) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Initial Share Price</td>
+							<td><%= number_to_currency(@company.init_share_price, precision: 2) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Amount Invested</td>
+							<td><%= number_to_currency(@company.amount_invested, precision: 0) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Initial Post-Money Valuation</td>
+							<td><%= number_to_currency(@company.init_post_money, precision: 0) %></td>
+						</tr>
+						
+					</table>
+		</fieldset>
+	</div>	
+	<div class="small-4 columns">
+		<fieldset class="investment-fieldset">
+			<legend>Current Investment Status</legend>
+				<table>
+						<tr>
+							<td class="company-descriptor">Most Recent Valuation</td>
+							<td><%= number_to_currency(@company.current_valuation, precision: 0) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Current % Ownership</td>
+							<td><%= number_to_percentage(@company.current_pct_ownership, precision: 2) %></td>
+						</tr>	
+						<tr>
+								<td class="company-descriptor">Current Share Price</td>
+								<td><%= number_to_currency(@company.current_share_price, precision: 2) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Current investment Value</td>
+							<td><%= number_to_currency(@company.current_investment_value, precision: 0) %></td>
+						</tr>
+						<tr>
+							<td class="company-descriptor">Unrealized ROI</td>
+							<td><%= number_to_percentage(@company.unrealized_roi, precision: 2) %></td>
+						</tr>
+						
+					</table>
+		</fieldset>
+	</div>
+</div>	
 <div class="large-3 large-offset-4 columns">
 
 	<%= link_to "Add New Investment Round", new_investment_round_path(:company_id => @company.id), :class => "new-round-button" %>
@@ -99,7 +104,7 @@
 					<td><%= investment_round.investors %></td>
 					<td><%= investment_round.investment_date %></td>
 					<td><%= link_to "view", investment_round %></td>
-					<td><%= link_to "edit", edit_investment_round_path(investment_round) %></td>
+					<td><%= link_to "edit", edit_investment_round_path(investment_round, :company_id => @company.id) %></td>
 				</tr>
 </fieldset>
 			<% end %>

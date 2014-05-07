@@ -8,24 +8,21 @@
 			  <%= f.text_area :round_name , placeholder: "Series A-1" %></div>
 
 			  <div><%= f.label :investment_amount %><br />
-			  <%= f.text_area :investment_amount , placeholder: "2000000" %>
+			  <%= f.text_area :investment_amount %>
 				</div>
 
 			  <div><%= f.label :pre_money_valuation %><br />
-				<%= f.text_area :pre_money_valuation, placeholder: "100000" %>
-
-				<div><%= f.label "Share Price" %><br />
-				<%= f.text_area :share_price, placeholder: "3.50" %>
+				<%= f.text_area :pre_money_valuation %>
 
 				<div><%= f.label "New Investors" %><br />
-			  <%= f.text_field :investors, placeholder: "DFJ, Kholsa Ventures" %></div>
+			  <%= f.text_field :investors %></div>
 
 			  <div><%= f.label :invstment_date %><br />
-			  <%= f.text_field :investment_date, placeholder: "April 1, 2014" %></div>
+			  <%= f.text_field :investment_date %></div>
 
-			  <% f.hidden_field :investment_id, value: @investment.id %>
+			  <%= f.hidden_field :company_id, value: @company.id %>
 
-			  <div><%= f.submit "Add New Round" , :class => 'button' %></div>
+			  <div><%= f.submit "Update Round" , :class => 'button' %></div>
 			<% end %>
 	</fieldset>
 </div>
