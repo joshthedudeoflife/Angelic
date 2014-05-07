@@ -1,14 +1,18 @@
 class InvestmentRoundsController < ApplicationController
+after_action :update_current_status, only: [:create, :update]
+
   def new
   	@investment_round = InvestmentRound.new
+    @company = Company.find params[:company_id]
   end
 
   def create
 	  @investment_round = InvestmentRound.new(safe_params)
-	  @company = params[:company_id]
+    company = Company.find params[:investment_round][:company_id]
+    @investment_round.company_id = company.id
 
 	  if @investment_round.save
-	  	redirect_to investment_rounds_path
+	  	redirect_to company
 	  else 
 	  	render :new
 	  end
@@ -41,10 +45,8 @@ private
   end 
   def safe_params
     params.require(:investment_round).permit(:round_name, :investment_amount, :pre_money_valuation, :share_price, :investors, :investment_date, :company_id, :init_post_money, :init_share_price)
-    # Make sure a key is in the params hash
-    # _require_ method
-
-    # Adding stuff to the whitelist, 
-    # _permit_ method
+  end
+  def update_current_status
+      
   end
 end

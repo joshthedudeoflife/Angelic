@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504233910) do
+ActiveRecord::Schema.define(version: 20140507005139) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -21,11 +21,18 @@ ActiveRecord::Schema.define(version: 20140504233910) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
-    t.decimal  "pct_ownership"
+    t.decimal  "init_pct_ownership"
     t.integer  "shares_bought"
     t.decimal  "init_share_price"
     t.decimal  "init_post_money"
     t.text     "description"
+    t.decimal  "current_shares_outstanding"
+    t.decimal  "current_pct_ownership"
+    t.decimal  "current_valuation"
+    t.decimal  "current_investment_value"
+    t.decimal  "unrealized_roi"
+    t.decimal  "initial_shares_outstanding"
+    t.decimal  "current_share_price"
   end
 
   add_index "companies", ["deleted_at"], name: "index_companies_on_deleted_at"

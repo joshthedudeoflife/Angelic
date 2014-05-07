@@ -23,7 +23,7 @@
 			  <div><%= f.label :invstment_date %><br />
 			  <%= f.text_field :investment_date, placeholder: "April 1, 2014" %></div>
 
-			  <%= f.hidden_field :investment_id, value: @investment %>
+			  <%= f.hidden_field :company_id, value: @company.id %>
 
 			  <div><%= f.submit "Add New Round" , :class => 'button' %></div>
 			<% end %>
