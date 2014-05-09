@@ -14,7 +14,6 @@
 	</th>
 	<% @investment_rounds.each do |investment_round| %>
 		<tr>
-			<td></td>
 			<td><%= investment_round.round_name %></td>
 			<td><%= number_to_currency(investment_round.investment_amount, precision: 0) %></td>
 			<td><%= number_to_currency(investment_round.pre_money_valuation, precision: 0) %></td>

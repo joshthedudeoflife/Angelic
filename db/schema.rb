@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507005139) do
+ActiveRecord::Schema.define(version: 20140508234713) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 20140507005139) do
     t.string   "round_name"
     t.string   "investment_date"
     t.integer  "company_id"
+  end
+
+  create_table "scenarios", force: true do |t|
+    t.integer  "company_id"
+    t.string   "acquirer"
+    t.string   "date"
+    t.decimal  "exit_valuation"
+    t.decimal  "share_price"
+    t.decimal  "shares_outstanding"
+    t.decimal  "pct_ownership"
+    t.decimal  "dilution"
+    t.decimal  "cash_returned"
+    t.decimal  "cash_profit"
+    t.decimal  "net_profit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

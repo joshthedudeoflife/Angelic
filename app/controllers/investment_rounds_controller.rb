@@ -7,7 +7,7 @@ class InvestmentRoundsController < ApplicationController
 
   def create
 	  @investment_round = InvestmentRound.new(safe_params)
-    company = Company.find params[:company_id]
+    company = Company.find params[:investment_round][:company_id]
     @investment_round.company_id = company.id
 
 	  if @investment_round.save
@@ -22,7 +22,7 @@ class InvestmentRoundsController < ApplicationController
   end
 
   def show
-  	@investment_round = Investment.find params[:id]
+  	@investment_round = InvestmentRound.find params[:id]
   end
 
   def edit
@@ -33,16 +33,21 @@ class InvestmentRoundsController < ApplicationController
 	  	@investment_round = InvestmentRound.find params[:id]
       company = Company.find params[:investment_round][:company_id]
       @investment_round.company_id = company.id
+      @rounds = InvestmentRound.where company_id: company.id
 
 
 	  if @investment_round.update(safe_params)
-      new_round_calcs
+      update_round_calcs
 	    redirect_to company
 	  else 
 	    render :edit
 	  end
 	end
-  
+  def destroy
+    @investment_round = InvestmentRound.find params[:id]
+    @investment_round.destroy
+    redirect_to companies_path
+  end
 private
   def safe_params
     params.require(:investment_round).permit(:round_name, :investment_amount, :pre_money_valuation, :share_price, :investors, :investment_date, :company_id, :init_post_money, :init_share_price)
@@ -58,5 +63,22 @@ private
     @company.unrealized_roi = ((@company.current_share_price - @company.init_share_price)/@company.init_share_price)*100
     @company.save
     @investment_round.save
+  end
+  def update_round_calcs   
+      @company = Company.find params[:investment_round][:company_id]
+      @investment_round.share_price = @investment_round.pre_money_valuation / @company.current_shares_outstanding
+    if @investment_round == InvestmentRound.order("created_at").last  
+      @company.current_share_price = @investment_round.share_price
+      @company.current_valuation = @investment_round.pre_money_valuation + @investment_round.investment_amount
+      @company.current_shares_outstanding = @company.current_shares_outstanding + (@investment_round.investment_amount/@investment_round.share_price)
+      @company.current_pct_ownership = @company.shares_bought / @company.current_shares_outstanding
+      @company.current_investment_value = @company.current_pct_ownership * @company.current_valuation
+      @company.unrealized_roi = ((@company.current_share_price - @company.init_share_price)/@company.init_share_price)*100
+      @company.save
+      @investment_round.save
+    else
+      @investment_round.save
+    end
+
   end
 end

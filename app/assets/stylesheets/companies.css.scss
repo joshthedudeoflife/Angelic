@@ -33,7 +33,7 @@ table {
   border: none;
 }
 td {
-	min-width: 150px;
+	min-width: 50px;
 }
 th {
   font-size: 30;
@@ -43,6 +43,7 @@ th {
   border: none;
 }
 
+
 .portfolio-table-head {
   background-color: black;
   font-style: bold;
@@ -50,6 +51,10 @@ th {
 .new-round-button {
   @include button;
   background-color: orange;
+}
+.scenario-button {
+  @include button;
+  background-color: green;
 }
 .rounds-table {
   border: none;

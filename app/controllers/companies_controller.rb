@@ -40,6 +40,11 @@ class CompaniesController < ApplicationController
       render :edit
     end
   end
+  def destroy
+    @company = Company.find params[:id]
+    @company.destroy
+    redirect_to companies_index_path
+  end
   private
     def init_calcs
       @company.init_post_money = @company.amount_invested / (@company.init_pct_ownership/100)

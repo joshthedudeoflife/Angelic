@@ -1,0 +1,25 @@
+<div class="small-6 large-centered columns">
+	<fieldset>
+		<legend>Whats your fantasy?</legend>
+
+			<%= form_for @scenario do |f| %>
+
+			  <div><%= f.label :acquirer %><br />
+			  <%= f.text_area :acquirer , placeholder: "Google" %></div>
+
+			  <div><%= f.label :date %><br />
+			  <%= f.text_area :date , placeholder: "December 20, 2014" %>
+				</div>
+
+			  <div><%= f.label :exit_valuation %><br />
+				<%= f.text_area :exit_valuation, placeholder: "1000000000" %>
+
+				<div><%= f.label :dilution %><br />
+			  <%= f.text_field :dilution, placeholder: "5" %></div>
+
+			  <%= f.hidden_field :company_id, value: @company.id %>
+
+			  <div><%= f.submit "Add New Round" , :class => 'button' %></div>
+			<% end %>
+	</fieldset>
+</div>

@@ -1,4 +1,6 @@
 Angelic::Application.routes.draw do
+  get "scenarios/new"
+  get "scenarios/show"
   get "investment_rounds/index"
   get "investment_rounds/show"
   get "investment_rounds/edit"
