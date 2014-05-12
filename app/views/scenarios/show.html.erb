@@ -1,5 +1,5 @@
 <div class="scenario-output"> 
-	<p id="scenario-output">You would make <span id="net-profit"><%= number_to_currency(@scenario.net_profit) %></span> off of your <span><%= number_to_currency(@scenario.amount_invested) %></span>.  You would end up owning <%= number_to_percentage(@scenario.amount_invested) %> of the company at the exit</p>
+	<p id="scenario-output">You would make <span id="net-profit"><%= number_to_currency(@scenario.net_profit, precision: 0) %></span> off of your <strong><%= number_to_currency(@scenario.amount_invested, precision: 0) %></strong> investment.  You would end up owning <strong><%= number_to_percentage(@scenario.pct_ownership*100) %></strong> of the company at the exit</p>
 </div>
 <div class="small-3 small-centered columns">
 	<div class="small-4 column"><%= link_to "Back to Portfolio", companies_index_path, :class => "scenario-button" %>

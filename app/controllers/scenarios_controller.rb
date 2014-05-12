@@ -21,7 +21,7 @@ class ScenariosController < ApplicationController
 private
 	def scenario_calcs
     @company = Company.find params[:scenario][:company_id]
-    @scenario.pct_ownership = @company.current_pct_ownership * (@scenario.dilution / 100)
+    @scenario.pct_ownership = @company.current_pct_ownership * (1-(@scenario.dilution / 100))
     @scenario.cash_returned = @scenario.pct_ownership * @scenario.exit_valuation
     @scenario.net_profit = @scenario.cash_returned - @company.amount_invested
     @scenario.amount_invested = @company.amount_invested
