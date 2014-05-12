@@ -1,3 +1,14 @@
 // Place all the styles related to the scenarios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#net-profit {
+	color: green;
+	font-weight: bold;
+}
+.scenario-output {
+	margin-top: 50px;
+	text-align: center;
+}
+#scenario-output {
+	font-size: 200%;
+}

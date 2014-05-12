@@ -35,6 +35,7 @@ devise_scope :user do
   #   resources :products
   resources :companies
   resources :investment_rounds
+  resources :scenarios
   # Example resource route with options:
   #   resources :products do
   #     member do
